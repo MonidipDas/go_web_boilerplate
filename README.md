@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Go Web Boilerplate
 
 ## Run the server
@@ -20,3 +21,6 @@ http://localhost:8080/
 - The main application entrypoint is `cmd/server/main.go`.
 - The project currently has a single Go source file for the server.
 - `go test ./...` reports no test files.
+=======
+# go_web_boilerplate
+>>>>>>> ff481b29083496a1ff49eec262d25ceab5420c67
