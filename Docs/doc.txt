@@ -1,0 +1,25 @@
+Entry point is main.go.
+
+After writing buisness code, do ctrl+s to get auto imported.
+
+To run a go file, we need to build it first.
+Make it binary executable.
+go run -> build + execute
+>> go run main.go
+
+To build:
+>>go build -o .\bin\main.exe .
+>>.\bin\main.exe
+
+Use tree to see folder structure.
+
+
+For production in golang, we use Makefile.
+Here you can see typical make file.
+Read about PHONY 
+
+There can be installation issues in Windows:
+In terminal Admin I had to run :
+[Environment]::SetEnvironmentVariable("Path", $env:Path + ";C:\Program Files (x86)\GnuWin32\bin", "Machine")
+run:build -> means run needs build command to be run earlier.
+
