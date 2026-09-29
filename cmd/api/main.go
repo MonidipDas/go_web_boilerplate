@@ -4,6 +4,8 @@ import (
 	"log"
 	"net/http"
 	"time"
+
+	"github.com/MonidipDas/go_web_boilerplate/internal/config"
 )
 
 func healthz(w http.ResponseWriter, r *http.Request) {
@@ -15,6 +17,7 @@ func healthz(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
+	cfg := config.MustLoad()
 	// using mux (multiplexer)
 	// http.HandleFunc("GET /healthz", healthz)
 	// http.HandleFunc("GET /healthz", healthz)
@@ -35,14 +38,16 @@ func main() {
 	mux.HandleFunc("GET /healthz", healthz)
 
 	srv := &http.Server{
-		Addr:         ":8090",
+		//Addr:        ":8090",
+		//Addr:         ":" + os.Getenv("PORT"),
+		Addr:         ":" + cfg.Port,
 		Handler:      mux,
 		ReadTimeout:  time.Second * 10,
 		WriteTimeout: time.Second * 30,
 		IdleTimeout:  time.Second * 60,
 	}
 
-	log.Println("Starting server on :8090...")
+	log.Printf("Server is starting on %s", srv.Addr)
 	err := srv.ListenAndServe()
 	if err != nil {
 		log.Fatalf("Server Failed : %v", err)
